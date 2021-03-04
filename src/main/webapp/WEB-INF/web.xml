@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<!-- servlet标签对Tomcat配置Servlet程序 -->
+	<servlet>
+		<!-- servlet-name标签，Servlet程序起得一个别名 -->
+		<servlet-name>firstServlet</servlet-name>
+		<!-- servlet-class是servlet程序的全类名 -->
+		<servlet-class>com.imust.servlet.FirstServlet</servlet-class>
+		<!-- init-param是初始化参数 -->
+		<init-param>
+			<!-- 参数名 -->
+			<param-name>url</param-name>
+			<!-- 参数值 -->
+			<param-value>jdbc:mysql:///antarctic_test</param-value>
+		</init-param>
+	</servlet>
+	<!-- servlet-mapping标签给servlet程序配置访问地址 -->
+	<servlet-mapping>
+		<!-- servlet-name标签的作用是告诉服务器，我当前配置的地址给哪个Servlet程序使用 -->
+		<servlet-name>firstServlet</servlet-name>
+		<!--
+			url-pattern标签配置访问地址
+				/ 斜杠在服务器解析的时候，表示地址为：Http://ip:port/工程路径
+				/first 表示地址为：http://ip:port/工程路劲/first
+		-->
+		<url-pattern>/first</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>helloServlet</servlet-name>
+		<servlet-class>com.imust.servlet.HelloServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>helloServlet</servlet-name>
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+</web-app>
